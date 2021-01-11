@@ -84,27 +84,39 @@ var swiper = new Swiper('.design .swiper-container', {
 });
 ```
 
+![guide1](https://user-images.githubusercontent.com/20235117/104144059-41c60c00-5405-11eb-941b-94271abebf73.png)
+
+
 
 ## Step4 터치이벤트 추가
 
 ### 1. 탭이 가운데로 움직이는 작업
 
+1-1. 이벤트 추가
+```
+// swiper on 초기화 후 사용으로 작업
+swiper.on('slideChange', function(){
+	//...
+});
+// gnb 클릭시 이벤트 작동 
+gnbLink.on('click', function(){
+	//...
+});
+```
 
-이벤트 추가
+1-2. 함수와 인자 
 ```
 // swiper on 초기화 후 사용으로 작업
 swiper.on('slideChange', function(){
 	var swiperIndex = this.activeIndex;
 	tabMove(swiperIndex);
 });
-// gnb 
+// gnb 클릭시 이벤트 작동 
 gnbLink.on('click', function(){
 	var gnbIndex = $(this).parent().index();
 	tabMove(gnbIndex);
 });
 ```
-
-swiper on 초기화 후 사용으로 작업 
 
 최종
 ```
