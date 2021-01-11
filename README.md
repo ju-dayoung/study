@@ -57,9 +57,6 @@
 .gnb{ overflow-x: auto; -webkit-overflow-scrolling: touch; background: #fff; }
 .gnb .gnb-list{ overflow-x:auto; text-align:center; font-size:0; white-space:nowrap; -webkit-overflow-scrolling: touch; }
 
-// -webkit-overflow-scrolling: touch;는 모바일에서만 작동하는 css
-// 리스트 아이템 바깥 요소에 white-space:nowrap; 로 한줄 만들기
-
 .gnb .gnb-list-item{ position:relative; display:inline-block; vertical-align:top; height:40px; padding:0 40px; font-size:16px; line-height:40px;}
 .gnb .gnb-list-item.is-active{ border-bottom:3px solid #f00; }
 .gnb .gnb-list-link{ display:block; }
@@ -67,17 +64,19 @@
 .design .swiper-slide{ position:relative; width:100%; height:500px; background-color:#ccc; text-align:center; }
 
 ```
+-webkit-overflow-scrolling: touch;는 모바일에서만 작동하는 css
+리스트 아이템 바깥 요소에 white-space:nowrap; 로 한줄 만들기
 
 ## Step3 swiper 플러그인 붙이기 작업
 
-설정
+swiper 옵션 설정
 
 ```
 var swiper = new Swiper('.design .swiper-container', {
-	slidesPerView: 'auto',
+	slidesPerView: 'auto', 
 	spaceBetween: 15,
-	cssWidthAndHeight: true,
-	autoResize: false,
+	cssWidthAndHeight: true, 
+	autoResize: false, 
 	paginationClickable: true,
 	autoplayDisableOnInteraction: false,
 	observer: true,
@@ -85,17 +84,53 @@ var swiper = new Swiper('.design .swiper-container', {
 });
 ```
 
-이벤트 추가
 
+## Step4 터치이벤트 추가
+
+### 1. 탭이 가운데로 움직이는 작업
+
+
+이벤트 추가
 ```
+// swiper on 초기화 후 사용으로 작업
 swiper.on('slideChange', function(){
 	var swiperIndex = this.activeIndex;
 	tabMove(swiperIndex);
 });
+// gnb 
 gnbLink.on('click', function(){
 	var gnbIndex = $(this).parent().index();
 	tabMove(gnbIndex);
 });
 ```
 
-## Step4 터치이벤트 추가
+swiper on 초기화 후 사용으로 작업 
+
+최종
+```
+
+function tabMove(index){
+	gnbItem.removeClass('is-active');
+	gnbItem.eq(index).addClass('is-active');
+	var gnbW = gnb.width(),
+	scrollLeft = (function(){
+		var w = 0;
+		gnbItem.each(function(i){
+			if (index > i){
+				w = w + $(this).outerWidth();
+			} else if (index === i){
+				w = w + ( $(this).outerWidth() / 2 );
+			}
+		});
+		return w;
+	})() - ( gnbW / 2 );
+
+	gnbList.animate({
+		'scrollLeft' : scrollLeft
+	}, 300);
+}
+```
+
+
+
+
