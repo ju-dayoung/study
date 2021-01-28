@@ -137,7 +137,7 @@ function tabMove(index){
 	var gnbW = gnb.width(),
 	// 전체를 감싸는 gnb의 가로값
 	
-	// scrollLeft는 -webkit-overflow-scrolling를 가진 .gnb-list
+	// scrollLeft는 -webkit-overflow-scrolling를 가진 .gnb-list를 이동시킨다
 	scrollLeft = (function(){
 		var w = 0; 
 		// w를 0으로 초기화
