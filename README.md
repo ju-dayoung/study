@@ -160,5 +160,5 @@ function tabMove(index){
 
 최종
 
-![ezgif-6-bff50332b7de](https://user-images.githubusercontent.com/20235117/106103993-20934880-6185-11eb-85f2-23009ce6feef.gif)
+![ezgif-6-31bdcd7df741](https://user-images.githubusercontent.com/20235117/106104304-9f888100-6185-11eb-8608-0f5eaf744a1f.gif)
 
