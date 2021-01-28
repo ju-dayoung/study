@@ -120,6 +120,7 @@ gnbLink.on('click', function(){
 	// 
 	tabMove(gnbIndex);
 });
+```
 
 1-2. 함수와 인자 
 
@@ -154,10 +155,8 @@ function tabMove(index){
 	// .gnb-list에 scrollLeft 애니메이션으로 tab이동
 }
 ```
+
 ![guide2](https://user-images.githubusercontent.com/20235117/104149801-f7e82080-541a-11eb-8233-19500b779a2f.png)
-
-
-```
 
 최종
 
