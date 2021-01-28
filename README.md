@@ -1,6 +1,6 @@
 # Swiper 컨텐츠와 탭 같이 움직이기
 
-## Step.1 마크업 작업
+## Step1 마크업 작업
 
 소스불러오기
 
@@ -47,7 +47,7 @@
 </div>
 ```
 
-## Step.2 CSS 작업
+## Step2 CSS 작업
 
 (reset.css가 있다는 가정하에)
 
@@ -65,7 +65,7 @@
 -webkit-overflow-scrolling: touch;는 모바일에서만 작동하는 css
 리스트 아이템 바깥 요소에 white-space:nowrap; 로 한줄 만들기
 
-## Step.3 swiper 플러그인 붙이기 작업
+## Step3 swiper 플러그인 붙이기 작업
 
 swiper 옵션 설정
 
@@ -86,7 +86,7 @@ var swiper = new Swiper('.design .swiper-container', {
 처음 로딩된 후 화면
 
 
-## Step.4 터치이벤트 추가
+## Step4 터치이벤트 추가
 
 ### 1. 탭이 가운데로 움직이는 작업
 
@@ -137,8 +137,10 @@ function tabMove(index){
 	var gnbW = gnb.width(),
 	// 전체를 감싸는 gnb의 가로값
 	
+	// scrollLeft는 -webkit-overflow-scrolling를 가진 .gnb-list
 	scrollLeft = (function(){
-		var w = 0; // w 초기화
+		var w = 0; 
+		// w를 0으로 초기화
 		gnbItem.each(function(i){
 			if (index > i){
 				w = w + $(this).outerWidth();
@@ -146,9 +148,12 @@ function tabMove(index){
 				w = w + ( $(this).outerWidth() / 2 );
 			}
 		});
+		// .gnb-list-item
 		return w;
+		// w값 반환
 	})() - ( gnbW / 2 );
-
+	
+	
 	gnbList.animate({
 		'scrollLeft' : scrollLeft
 	}, 300);
@@ -158,6 +163,9 @@ function tabMove(index){
 
 ![guide2](https://user-images.githubusercontent.com/20235117/104149801-f7e82080-541a-11eb-8233-19500b779a2f.png)
 
+
 최종
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/20235117/106104745-2f2e2f80-6186-11eb-8403-4e6c0cb519eb.gif)
+
+[네이버](https://naver.com)
