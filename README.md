@@ -167,5 +167,3 @@ function tabMove(index){
 최종
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/20235117/106104745-2f2e2f80-6186-11eb-8403-4e6c0cb519eb.gif)
-
-[네이버](https://naver.com)
